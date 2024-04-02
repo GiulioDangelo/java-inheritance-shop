@@ -19,6 +19,11 @@ public class Main {
         System.out.println("stai aggiungendo uno smartphone, un televisore o delle cuffie?");
         String choice = scan.nextLine().toLowerCase();
 
+        scan.nextLine();
+
+        System.out.println("hai la carta fedelta'?");
+        boolean card = scan.nextBoolean();
+
         switch(choice) {
             case "smartphone":
                 System.out.println("inserisci nome");
@@ -38,7 +43,7 @@ public class Main {
 
                 scan.nextLine();
 
-                Smarphone phone = new Smarphone(smartphoneName,smartphoneBrand,smartphonePrice,imei,ram);
+                Smarphone phone = new Smarphone(smartphoneName,smartphoneBrand,smartphonePrice,card, imei,ram);
                 lista[i] = phone;
                 i++;
                 break;
@@ -60,7 +65,7 @@ public class Main {
                 System.out.println("inserisci smart o no");
                 boolean isSmart = scan.nextBoolean();
 
-                Televisori tv = new Televisori(tvName,tvBrand,tvPrice,size,isSmart);
+                Televisori tv = new Televisori(tvName,tvBrand,tvPrice,card,size,isSmart);
                 lista[i] = tv;
                 i++;
                 break;
@@ -82,7 +87,7 @@ public class Main {
                 System.out.println("inserisci cavo o no");
                 boolean hasCable = scan.nextBoolean();
 
-                Cuffie headphones = new Cuffie(headphonesName,headphonesBrand,headphonesPrice,color,hasCable);
+                Cuffie headphones = new Cuffie(headphonesName,headphonesBrand,headphonesPrice, card, color,hasCable);
                 lista[i] = headphones;
                 i++;
                 break;

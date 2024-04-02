@@ -1,5 +1,6 @@
 package org.experis.inheritanceShop;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.Random;
 
@@ -9,15 +10,19 @@ public class Prodotto {
     private String brand;
     private BigDecimal price;
     private BigDecimal iva = BigDecimal.valueOf(0.22);
+    private boolean card;
 
 
     Random rand = new Random();
-    Prodotto(String name, String brand, BigDecimal price) {
+    Prodotto(String name, String brand, BigDecimal price, boolean card) {
         id = rand.nextInt(100000000);
 
         this.name = name;
         this.brand = brand;
         this.price = price;
+        this.card = card;
+
+        applyDiscount();
     }
 
 
@@ -38,5 +43,15 @@ public class Prodotto {
     public String getAllDetails(){
         String details = "id: " + id + "\nnome: " + name + "\nbrand: " + brand + "\nprice: " + price + "\niva: " + iva + "\n";
         return details;
+    }
+
+    public BigDecimal applyDiscount() {
+        if (card) {
+            BigDecimal discount = price.multiply(BigDecimal.valueOf(0.02));
+            price = price.subtract(discount);
+            return price;
+        } else {
+            return price;
+        }
     }
 }
