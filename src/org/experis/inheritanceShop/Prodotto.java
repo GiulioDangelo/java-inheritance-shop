@@ -1,4 +1,4 @@
-package org.experis.bonus2;
+package org.experis.inheritanceShop;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Random;
@@ -36,6 +36,7 @@ public class Prodotto {
     }
 
     public String getAllDetails(){
-        return "id: " + id + "\nnome: " + name + "\nbrand: " + brand + "\nprice: " + price + "\niva: " + iva + "\n";
+        String details = "id: " + id + "\nnome: " + name + "\nbrand: " + brand + "\nprice: " + price + "\niva: " + iva + "\n";
+        return details;
     }
 }
